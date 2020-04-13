@@ -16,10 +16,7 @@ def is_anagram(a: str, b: str):
         elif 'A' <= b[i] <= 'Z':
             count2[ord(b[i]) - ord('A')] -= 1
 
-    if any(count) or any(count2):
-        return False
-
-    return True
+    return not any(count) and not any(count2)
 
 
 if __name__ == '__main__':

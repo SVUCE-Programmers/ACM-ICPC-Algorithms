@@ -2,13 +2,14 @@
 Author: Tushar Nitave
 '''
 
+
 nums = [-1, 0, 1, 2, -1, -4]
 
 hashTable = []
 result = []  # result containing duplicate values
 finalresult = []  # stores final result without duplicate values
 
-for i in range(0, len(nums) - 2):
+for i in range(len(nums) - 2):
 
     for j in range(i + 1, len(nums) - 1):
         x = -(nums[i] + nums[j])
@@ -20,9 +21,9 @@ for i in range(0, len(nums) - 2):
         else:
             hashTable.append(nums[j])
 
-for i in range(len(result)):
-    result[i].sort()
-    if not result[i] in finalresult:
-        finalresult.append(result[i])
+for item in result:
+    item.sort()
+    if item not in finalresult:
+        finalresult.append(item)
 
 print(finalresult)

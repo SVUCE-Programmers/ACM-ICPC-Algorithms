@@ -44,9 +44,7 @@ def fibonacci_search(arr, x, n):
 if __name__ == "__main__":
     n = int(input("Enter the number of elements: "))
     print("Enter the elements each line")
-    arr = []
-    for i in range(n):
-        arr.append(int(input()))
+    arr = [int(input()) for _ in range(n)]
     x = int(input("Enter element to be searched: "))
     idx = fibonacci_search(arr, x, n)
     if idx == -1:

@@ -28,7 +28,7 @@ def rabin_karp_matcher(T, P, d, q):
     p = 0
     t = 0
     # preprocessing
-    for i in range(m - 1):
+    for _ in range(m - 1):
         h = (h * d) % q
     for i in range(m):
         p = (d * p + ord(P[i])) % q

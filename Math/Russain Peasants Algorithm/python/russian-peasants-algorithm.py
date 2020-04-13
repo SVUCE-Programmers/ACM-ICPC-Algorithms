@@ -6,13 +6,13 @@ def multiply(a,b):
     else:
         left = b
         right = a
-    
+
     prod = 0
-    
+
     while left > 0: # Loop till you reach 1
         if left%2 != 0:  # Add the value to product variable if the left column value is odd
-            prod = prod + right
-        
+            prod += right
+
         left = left >> 1 # Right shift
         right = right << 1 # Left Shift
 

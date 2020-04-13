@@ -20,15 +20,11 @@ class Graph():
     def hamCycleUtil(self, path, pos):
 
         # base case: if all vertices are
-        # included in the path
+            # included in the path
         if pos == self.V:
             # Last vertex must be adjacent to the
-            # first vertex in path to make a cyle
-            if self.graph[path[pos - 1]][path[0]] == 1:
-                return True
-            else:
-                return False
-
+                    # first vertex in path to make a cyle
+            return self.graph[path[pos - 1]][path[0]] == 1
         for v in range(1, self.V):
 
             if self.isSafe(v, pos, path) is True:

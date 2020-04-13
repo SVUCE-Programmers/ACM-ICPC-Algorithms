@@ -12,7 +12,7 @@ class MergeSort:
             return a
 
     def merge(self, left, right):
-        output = list()
+        output = []
         leftCount, rightCount = 0, 0
         while leftCount < len(left) or rightCount < len(right):
             if leftCount < len(left) and rightCount < len(right):

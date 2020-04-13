@@ -11,7 +11,7 @@ closing_parantheses = [']', ')', '}']
 def is_balanced(expr):
     stack = []
     n = len(expr)
-    for i in range(0, n):
+    for i in range(n):
         if (expr[i] in opening_parantheses):
             stack.append(expr[i])
         elif (expr[i] in closing_parantheses):
@@ -20,7 +20,7 @@ def is_balanced(expr):
             if (stack.pop() != matching_paranthesis):
                 return False
 
-    return True if len(stack) == 0 else False
+    return True if not stack else False
 
 
 def main():

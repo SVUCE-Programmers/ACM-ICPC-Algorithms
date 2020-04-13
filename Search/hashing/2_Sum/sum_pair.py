@@ -1,11 +1,11 @@
 def print_pairs(arr, sum):
   s = set()
 
-  for i in range(0, len(arr)):
-    temp = sum - arr[i]
+  for item in arr:
+    temp = sum - item
     if temp >= 0 and temp in s:
-      print("Pair with the given sum is", arr[i], "and", temp)
-    s.add(arr[i])
+      print("Pair with the given sum is", item, "and", temp)
+    s.add(item)
 
 
 if __name__ == "__main__":

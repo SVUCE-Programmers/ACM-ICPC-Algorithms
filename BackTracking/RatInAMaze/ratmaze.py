@@ -16,9 +16,7 @@ def printSolution(sol):
 # A utility function to check if x,y is valid
 # index for N*N Maze
 def isSafe(maze, x, y):
-    if x >= 0 and x < N and y >= 0 and y < N and maze[x][y] == 1:
-        return True
-    return False
+    return x >= 0 and x < N and y >= 0 and y < N and maze[x][y] == 1
 
 
 def solveMaze(maze):
