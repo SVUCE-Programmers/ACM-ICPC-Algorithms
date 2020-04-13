@@ -10,8 +10,7 @@ class Graph():
         self.graph[u].append(v)
 
     def BFS(self, node):
-        queue = []
-        queue.append(node)
+        queue = [node]
         self.visited[node] = True
 
         while queue:
@@ -19,10 +18,10 @@ class Graph():
             print(currentNode)
 
             children = self.graph[currentNode]
-            for i in range(len(children)):
-                if not self.visited[children[i]]:
-                    queue.append(children[i])
-                    self.visited[children[i]] = True
+            for child in children:
+                if not self.visited[child]:
+                    queue.append(child)
+                    self.visited[child] = True
 
 
 if __name__ == '__main__':

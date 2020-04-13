@@ -6,22 +6,15 @@ def is_anagram(str1, str2):
     chars2 = get_alphabet(str2.lower())
 
     # Check if both strings contain the same characters in the same amounts
-    if chars1 == chars2:
-        return True
-    else:
-        return False
+    return chars1 == chars2
 
 
 def get_alphabet(string):
     """Creates a dictionary containing a count of the number of times
     each alphanumeric character in string is used."""
     """E.g. get_alphabet("Hello") would return {'H':1, 'e':1, 'l':2, 'o':1}"""
-    alphabet = dict()
+    alphabet = {}
     for c in string:
         if c.isalnum():
-            if c in alphabet:
-                alphabet[c] = alphabet[c] + 1
-            else:
-                alphabet[c] = 1
-
+            alphabet[c] = alphabet[c] + 1 if c in alphabet else 1
     return alphabet

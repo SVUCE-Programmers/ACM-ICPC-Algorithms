@@ -1,6 +1,6 @@
 # DP Approach for Fibonacci series
 
-ans = dict()
+ans = {}
 
 
 def fibo(i):

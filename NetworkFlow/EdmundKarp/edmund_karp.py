@@ -16,12 +16,11 @@ def EdmondsKarp(E, C, s, t):
         P[s] = -2
         M = [0 for x in range(n)]
         M[s] = decimal.Decimal('Infinity')
-        BFSq = []
-        BFSq.append(s)
+        BFSq = [s]
         pathFlow, P = BFSEK(E, C, s, t, F, P, M, BFSq)
         if pathFlow == 0:
             break
-        flow = flow + pathFlow
+        flow += pathFlow
         v = t
         while v != s:
             u = P[v]

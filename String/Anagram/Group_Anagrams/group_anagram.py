@@ -13,12 +13,9 @@ for x in input_user:
 arrFinal = []
 i = 0
 for x in inp:
-    arrPrint = []
-    for b in inp:
-        if (is_anagram.is_anagram(str(x), str(b))):
-            arrPrint.append(b)
+    arrPrint = [b for b in inp if is_anagram.is_anagram(str(x), str(b))]
     arrFinal.append(arrPrint)
-    i = i + 1
+    i += 1
 
 aux = arrFinal[0][0]
 for i, j in enumerate(arrFinal[:-1]):

@@ -23,69 +23,71 @@ class BST:
         return self._size == 0
 
     def populateTree(self):
-        for i in range(len(self.arr)):
-            self.insert(self.arr[i])
+        for item in self.arr:
+            self.insert(item)
 
     def insert(self, value):
-        if type(value) == self._dataType:
-            itemNum = self._size
-            newNode = Node(value, type(value), itemNum, None, None, None)
-            if (self._root is None):
-                self._root = newNode
-                self._size += 1
-                return
+        if type(value) != self._dataType:
+            return
+        itemNum = self._size
+        newNode = Node(value, type(value), itemNum, None, None, None)
+        if (self._root is None):
+            self._root = newNode
+            self._size += 1
+            return
 
-            pointer = self._root
-            currentVal = pointer.getData()
-            while True:
-                if value < currentVal:
-                    if pointer.getLeft() is None:
-                        newNode.setParent(pointer)
-                        pointer.setLeft(newNode)
-                        self._size += 1
-                        return
-                    else:
-                        pointer = pointer.getLeft()
-                        currentVal = pointer.getData()
-
-                elif value > currentVal:
-                    if pointer.getRight() is None:
-                        newNode.setParent(pointer)
-                        pointer.setRight(newNode)
-                        self._size += 1
-                        return
-                    else:
-                        pointer = pointer.getRight()
-                        currentVal = pointer.getData()
-
-                elif value == currentVal:
-                    print("Value already exists in BST.")
+        pointer = self._root
+        currentVal = pointer.getData()
+        while True:
+            if value < currentVal:
+                if pointer.getLeft() is None:
+                    newNode.setParent(pointer)
+                    pointer.setLeft(newNode)
+                    self._size += 1
                     return
-
-    def search(self, value):
-        if type(value) == self._dataType:
-            if (self._root is None):
-                return False
-
-            pointer = self._root
-            currentVal = pointer.getData()
-            while True:
-                if value < currentVal:
-                    if pointer.getLeft() is None:
-                        return False
-
+                else:
                     pointer = pointer.getLeft()
                     currentVal = pointer.getData()
 
-                elif value > currentVal:
-                    if pointer.getRight() is None:
-                        return False
-
+            elif value > currentVal:
+                if pointer.getRight() is None:
+                    newNode.setParent(pointer)
+                    pointer.setRight(newNode)
+                    self._size += 1
+                    return
+                else:
                     pointer = pointer.getRight()
                     currentVal = pointer.getData()
 
-                elif value == currentVal:
-                    return pointer.getItemNum()
+            elif value == currentVal:
+                print("Value already exists in BST.")
+                return
+
+    def search(self, value):
+        if type(value) != self._dataType:
+            return
+        if (self._root is None):
+            return False
+
+        pointer = self._root
+        currentVal = pointer.getData()
+        while True:
+            if value < currentVal:
+                if pointer.getLeft() is None:
+                    return False
+
+                pointer = pointer.getLeft()
+                currentVal = pointer.getData()
+
+            elif value > currentVal:
+                if pointer.getRight() is None:
+                    return False
+
+                pointer = pointer.getRight()
+                currentVal = pointer.getData()
+
+            elif value == currentVal:
+                return pointer.getItemNum()
 
     def inOrderTraversal(self, node):
         if node is not None:
@@ -94,7 +96,7 @@ class BST:
             self.inOrderTraversal(node.getRight())
 
     def getSorted(self):
-        self.sorted = list()
+        self.sorted = []
         self.inOrderTraversal(self._root)
         return self.sorted
 

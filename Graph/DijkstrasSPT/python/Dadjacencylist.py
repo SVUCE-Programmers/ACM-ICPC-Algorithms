@@ -11,8 +11,7 @@ class Heap():
         self.pos = []
 
     def newMinHeapNode(self, v, dist):
-        minHeapNode = [v, dist]
-        return minHeapNode
+        return [v, dist]
 
     # A utility function to swap two nodes
     # of min heap. Needed for min heapify
@@ -82,9 +81,7 @@ class Heap():
     # vertex 'v' is in min heap or not
     def isInMinHeap(self, v):
 
-        if self.pos[v] < self.size:
-            return True
-        return False
+        return self.pos[v] < self.size
 
 
 def printArr(dist, n):
